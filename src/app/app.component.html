@@ -1,0 +1,76 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3>New patient Registration</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors?.required">First Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>DOB</label>
+            <input type="date" formControlName="dob" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+            <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+              <div *ngIf="f.dob.errors?.required">DOB is required</div>
+            </div>
+          </div>
+          <div class="form-group form-check form-check-inline">
+            <div class=" form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="gender" name="gender"
+                id="inlineRadio1" value="M" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+              <label class="form-check-label" for="inlineRadio1">Male</label>
+            </div>
+            <div class=" form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="gender" name="gender"
+                id="inlineRadio2" value="F" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+              <label class="form-check-label" for="inlineRadio2">Female</label>
+                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback form-check-input pl-3">
+                  <div *ngIf="f.gender.errors?.required">Gender is required</div>
+                </div>
+            </div>
+            
+             
+          </div>
+          <div class="form-group">
+            <label>Adhar No</label>
+            <input type="text" formControlName="adharno" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.adharno.errors }" />
+            <div *ngIf="submitted && f.adharno.errors" class="invalid-feedback">
+              <div *ngIf="f.adharno.errors?.required">Password is required</div>
+              <div *ngIf="f.adharno.errors?.minlength">Password must be at least 6 characters</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Phone No</label>
+            <input type="text" formControlName="phoneno" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.phoneno.errors }" />
+            <div *ngIf="submitted && f.phoneno.errors" class="invalid-feedback">
+              <div *ngIf="f.phoneno.errors?.required">Password is required</div>
+              <div *ngIf="f.phoneno.errors?.minlength">Password must be at least 6 characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
